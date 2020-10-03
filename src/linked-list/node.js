@@ -8,6 +8,10 @@ class Node{
     toString(callback){
         return callback?callback(this.data) : `${this.value}`
     }
+
+    getNext(){
+        return this.next;
+    }
     
 }
 

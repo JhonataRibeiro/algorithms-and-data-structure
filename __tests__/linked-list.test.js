@@ -48,3 +48,24 @@ test('should update next when a new node is added', ()=>{
     expect(linkedListUpdated.head.next.next).toBeNull()
     
 })
+
+test('should add new node at end of linkedList', ()=>{
+    const nodeForEnd = {
+        text: "last node"
+    }
+
+    let linkedList = new LinkedList();
+    linkedList.add(node);
+    linkedList.add(node2);
+    let linkedListUpdated = linkedList.addEnd(nodeForEnd)
+
+    let lastNode = linkedListUpdated.head;
+    
+    while(lastNode.getNext() !== null){
+        lastNode = lastNode.getNext();
+    }
+
+    expect(lastNode.data).toEqual(nodeForEnd);
+    expect(lastNode.next).toBeNull();
+
+})

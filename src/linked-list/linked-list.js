@@ -20,6 +20,22 @@ class linkedList{
 
         return this;
     }
+
+    addEnd(node){
+        let nodeToAddEnd = new Node(node, null);
+
+        let searchedNode = this.head;
+
+        while(searchedNode.getNext() !== null){
+            searchedNode = searchedNode.getNext();
+        }
+
+        searchedNode.next = nodeToAddEnd;
+
+        return this;
+
+    }
+
 } 
 
 export default linkedList;
