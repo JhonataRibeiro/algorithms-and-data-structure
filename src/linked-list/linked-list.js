@@ -24,13 +24,8 @@ class linkedList{
     addEnd(node){
         let nodeToAddEnd = new Node(node, null);
 
-        let searchedNode = this.head;
-
-        while(searchedNode.getNext() !== null){
-            searchedNode = searchedNode.getNext();
-        }
-
-        searchedNode.next = nodeToAddEnd;
+        this.tail.next = nodeToAddEnd;
+        this.tail = nodeToAddEnd
 
         return this;
 
