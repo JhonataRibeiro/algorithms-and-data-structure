@@ -71,7 +71,7 @@ test('should add new node at end of linkedList', ()=>{
 })
 
 describe('delete', ()=>{
-   it('deve deletar node', ()=>{
+   it('shoud delete node', ()=>{
     let linkedList = new LinkedList();
     let node3 = {
         text: 'node 3'
@@ -86,6 +86,14 @@ describe('delete', ()=>{
     expect(linkedListUpdated.head.data).toEqual(node2)
     expect(linkedListUpdated.head.next).toEqual({data:node, next: null})
    })
+
+   it('should delete node from end', ()=>{})
+
+})
+
+describe('reverse', ()=>{
+    it('next\'s head should point to null',()=>{})
+    it('next\'s tails should point to predecessor node',()=>{})
 })
 
 
