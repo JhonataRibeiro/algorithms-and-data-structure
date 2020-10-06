@@ -31,6 +31,15 @@ class linkedList{
 
     }
 
+    delete(){
+        let targetNode = this.head.next;
+        
+        this.head = null;
+        this.head = targetNode;
+
+        return this;
+    }
+
 } 
 
 export default linkedList;

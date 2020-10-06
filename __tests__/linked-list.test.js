@@ -69,3 +69,23 @@ test('should add new node at end of linkedList', ()=>{
     expect(lastNode.next).toBeNull();
 
 })
+
+describe('delete', ()=>{
+   it('deve deletar node', ()=>{
+    let linkedList = new LinkedList();
+    let node3 = {
+        text: 'node 3'
+    }
+
+    linkedList.add(node);
+    linkedList.add(node2);
+    linkedList.add(node3);
+
+    let linkedListUpdated = linkedList.delete();
+    
+    expect(linkedListUpdated.head.data).toEqual(node2)
+    expect(linkedListUpdated.head.next).toEqual({data:node, next: null})
+   })
+})
+
+
