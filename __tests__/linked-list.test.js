@@ -71,11 +71,12 @@ test('should add new node at end of linkedList', ()=>{
 })
 
 describe('delete', ()=>{
-   it('shoud delete node', ()=>{
-    let linkedList = new LinkedList();
     let node3 = {
         text: 'node 3'
     }
+    
+    it('shoud delete node', ()=>{
+    let linkedList = new LinkedList();
 
     linkedList.add(node);
     linkedList.add(node2);
@@ -87,7 +88,18 @@ describe('delete', ()=>{
     expect(linkedListUpdated.head.next).toEqual({data:node, next: null})
    })
 
-   it('should delete node from end', ()=>{})
+   it('should delete node from end', ()=>{
+       let linkedList = new LinkedList();
+
+       linkedList.add(node)
+       linkedList.add(node2)
+       linkedList.add(node3)
+
+       let linkedListUpdated = linkedList.deleteEnd();
+
+       expect(linkedListUpdated.tail.data).toEqual(node2);
+       expect(linkedListUpdated.tail.next).toEqual(null);
+   })
 
 })
 

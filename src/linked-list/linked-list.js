@@ -40,6 +40,20 @@ class linkedList{
         return this;
     }
 
+    deleteEnd(){
+
+        let beforeTailNode = this.head;
+
+        while(beforeTailNode.next !== this.tail){
+            beforeTailNode = beforeTailNode.next
+        }
+
+        this.tail = beforeTailNode;
+        this.tail.next = null;
+
+        return this;
+    }
+
 } 
 
 export default linkedList;
