@@ -8,6 +8,10 @@ let node2 = {
     texto: 'second node'
 }
 
+let node3 = {
+    text: 'node 3'
+}
+
 test('should create linkedList', ()=>{
  
     let linkedList = new LinkedList(node);
@@ -71,10 +75,6 @@ test('should add new node at end of linkedList', ()=>{
 })
 
 describe('delete', ()=>{
-    let node3 = {
-        text: 'node 3'
-    }
-    
     it('shoud delete node', ()=>{
     let linkedList = new LinkedList();
 
@@ -104,8 +104,24 @@ describe('delete', ()=>{
 })
 
 describe('reverse', ()=>{
-    it('next\'s head should point to null',()=>{})
-    it('next\'s tails should point to predecessor node',()=>{})
+    it('next\'s head should point to null',()=>{
+        let linkedList = new LinkedList();
+
+        linkedList.add(node)
+        linkedList.add(node2)
+        linkedList.add(node3)
+
+        let reversedLinkedList = linkedList.reverse();
+
+        expect(reversedLinkedList.tail.data).toEqual(node3)
+        expect(reversedLinkedList.tail.next).toBeNull()
+        expect(reversedLinkedList.head.data).toEqual(node)
+        expect(reversedLinkedList.head.next).toEqual(node2)
+
+        expect(reversedLinkedList.head.next.next).toEqual(node3)
+
+    })
+
 })
 
 

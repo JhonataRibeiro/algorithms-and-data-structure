@@ -54,6 +54,10 @@ class linkedList{
         return this;
     }
 
+    reverse(){
+        throw new Error("reverse not implemented")
+    }
+
 } 
 
 export default linkedList;
