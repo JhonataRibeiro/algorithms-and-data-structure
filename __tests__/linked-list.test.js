@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import LinkedList from '../src/linked-list/linked-list'
 
 const node = {
@@ -105,13 +106,18 @@ describe('reverse', () => {
     linkedList.add(node2)
     linkedList.add(node3)
 
+    linkedList.toString()
+
+    console.log('=======================================')
     const reversedLinkedList = linkedList.reverse()
+
+    //reversedLinkedList.toString()
 
     expect(reversedLinkedList.tail.data).toEqual(node3)
     expect(reversedLinkedList.tail.next).toBeNull()
     expect(reversedLinkedList.head.data).toEqual(node)
-    expect(reversedLinkedList.head.next).toEqual(node2)
+    expect(reversedLinkedList.head.next.data).toEqual(node2)
 
-    expect(reversedLinkedList.head.next.next).toEqual(node3)
+    expect(reversedLinkedList.head.next.next.data).toEqual(node3)
   })
 })

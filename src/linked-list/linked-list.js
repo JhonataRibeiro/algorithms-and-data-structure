@@ -1,76 +1,87 @@
-import Node from "./node";
+import Node from './node'
 
 class linkedList {
-  constructor() {
-    this.head = null;
-    this.tail = null;
+  constructor () {
+    this.head = null
+    this.tail = null
 
-    return this;
+    return this
   }
 
-  add(node) {
-    const novoNode = new Node(node, this.head);
-    this.head = novoNode;
+  add (node) {
+    const novoNode = new Node(node, this.head)
+    this.head = novoNode
 
     if (!this.tail) {
-      this.tail = novoNode;
+      this.tail = novoNode
     }
 
-    return this;
+    return this
   }
 
-  addEnd(node) {
-    const nodeToAddEnd = new Node(node, null);
+  addEnd (node) {
+    const nodeToAddEnd = new Node(node, null)
 
-    this.tail.next = nodeToAddEnd;
-    this.tail = nodeToAddEnd;
+    this.tail.next = nodeToAddEnd
+    this.tail = nodeToAddEnd
 
-    return this;
+    return this
   }
 
-  delete() {
-    const targetNode = this.head.next;
+  delete () {
+    const targetNode = this.head.next
 
-    this.head = null;
-    this.head = targetNode;
+    this.head = null
+    this.head = targetNode
 
-    return this;
+    return this
   }
 
-  deleteEnd() {
-    let beforeTailNode = this.head;
+  deleteEnd () {
+    let beforeTailNode = this.head
 
     while (beforeTailNode.next !== this.tail) {
-      beforeTailNode = beforeTailNode.next;
+      beforeTailNode = beforeTailNode.next
     }
 
-    this.tail = beforeTailNode;
-    this.tail.next = null;
+    this.tail = beforeTailNode
+    this.tail.next = null
 
-    return this;
+    return this
   }
 
-  reverse() {
-    let previous = null;
-    let current = null;
-    let next = null;
+  reverse () {
+    let previous = this.head
+    let current = previous.next
+    let next = current.next
 
-    previous = this.head;
-    current = previous.next;
-    next = current.next;
+    previous.next = null
+    this.tail = previous
 
-    //reverse arrow
-    current.next = previous;
+    while (next !== null || current !== null) {
+      current.next = previous
 
-    previous = current;
-    current = previous.next;
-    next = current.next;
+      previous = current
+      current = next
 
-    //reverse arrow
-    current.next = previous;
+      if (current !== null) {
+        next = current.next
+      } else {
+        this.head = previous
+      }
+    }
 
-    throw new Error("reverse not implemented");
+    return this
+  }
+
+  toString () {
+    let node = this.head
+
+    while (node !== null) {
+      console.log(node)
+      node = node.next
+    }
   }
 }
 
-export default linkedList;
+export default linkedList
