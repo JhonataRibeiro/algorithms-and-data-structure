@@ -1,6 +1,6 @@
 import Node from './node'
 
-class linkedList {
+class LinkedList {
   constructor () {
     this.head = null
     this.tail = null
@@ -84,4 +84,4 @@ class linkedList {
   }
 }
 
-export default linkedList
+export default LinkedList
