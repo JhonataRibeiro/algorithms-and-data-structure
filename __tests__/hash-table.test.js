@@ -1,10 +1,21 @@
-import HashTable  from '../src/hash-table/hash-table'
+/* eslint-disable no-undef */
+import HashTable from '../src/hash-table/hash-table'
 
-describe('hash table', ()=>{
-    it('should initialize hash table with 10 position',()=>{
-        const table = new HashTable(10);
-        expect(table.size).toBe(10)
-    })
-    it('should generate hash X to value Y',()=>{})
-    it('should return value Y given value X',()=>{})
+describe('hash table', () => {
+  it('should initialize hash table with 10 position', () => {
+    const table = new HashTable(10)
+    expect(table.size).toBe(10)
+  })
+
+  it('should generate hash 13 for value 29', () => {
+    const table = new HashTable(16)
+    const hash = table.generateHash(29)
+    expect(hash).toBe(13)
+  })
+
+  it('should generate hash 3 for value 899', () => {
+    const table = new HashTable(16)
+    const hash = table.generateHash(899)
+    expect(hash).toBe(3)
+  })
 })
