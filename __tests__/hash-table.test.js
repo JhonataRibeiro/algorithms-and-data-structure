@@ -18,4 +18,10 @@ describe('hash table', () => {
     const hash = table.generateHash(899)
     expect(hash).toBe(3)
   })
+
+  it('should generate hash 444 for value word', () => {
+    const table = new HashTable(16)
+    const hash = table.generateHash('word')
+    expect(hash).toBe(12)
+  })
 })
