@@ -1,9 +1,9 @@
-import Node from '../linked-list/node'
+import LinkedList from '../linked-list/linked-list'
 
 class HashTable {
   constructor (size) {
     this.size = size
-    this.buckets = new Array(this.size)
+    this.buckets = new Array(this.size).fill(null)
 
     return this
   }
@@ -27,14 +27,30 @@ class HashTable {
     throw new Error('Value not supported')
   }
 
-  add (value) {
-    if (typeof (value) !== 'number' && typeof (value) !== 'string') {
+  add (key, value) {
+    if (typeof (key) !== 'number' && typeof (key) !== 'string') {
       throw new Error('Value not supported')
     }
 
-    const position = this.generateHash(value)
+    const position = this.generateHash(key)
+    let node = this.buckets[position]
 
-    this.buckets[position] = new Node(position, null)
+    if (node === null) {
+      node = new LinkedList()
+      node.add(value)
+
+      this.buckets[position] = node
+
+      return this
+    }
+
+    node.addEnd(value)
+    return this
+  }
+
+  get (key) {
+    const position = this.generateHash(key)
+    return this.buckets[position]
   }
 }
 

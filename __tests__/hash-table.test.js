@@ -24,4 +24,12 @@ describe('hash table', () => {
     const hash = table.generateHash('word')
     expect(hash).toBe(12)
   })
+
+  it('sould create new node and insert \'word\' in position 12', () => {
+    const hashTable = new HashTable(16)
+    const key = 'word'
+    const value = 'word payload'
+    hashTable.add(key, value)
+    expect(hashTable.get(key).head.data).toBe(value)
+  })
 })
