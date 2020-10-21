@@ -25,10 +25,19 @@ describe('hash table', () => {
     expect(hash).toBe(12)
   })
 
-  it('sould create new node and insert \'word\' in position 12', () => {
+  it('should create new node and insert \'word\' in position 12', () => {
     const hashTable = new HashTable(16)
     const key = 'word'
-    const value = 'word payload'
+    const value = 'data payload'
+    hashTable.add(key, value)
+    expect(hashTable.get(key).head.data).toBe(value)
+  })
+
+  it('should resolve colision with palindrome 313', () => {
+    const hashTable = new HashTable(16)
+    const key = '313'
+    const value = 'data value'
+    hashTable.add(key, value)
     hashTable.add(key, value)
     expect(hashTable.get(key).head.data).toBe(value)
   })
