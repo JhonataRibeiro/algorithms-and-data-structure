@@ -27,24 +27,24 @@ class HashTable {
     throw new Error('Value not supported')
   }
 
-  add (key, value) {
-    if (typeof (key) !== 'number' && typeof (key) !== 'string') {
+  add (value) {
+    if (typeof (value.key) !== 'number' && typeof (value.key) !== 'string') {
       throw new Error('Value not supported')
     }
 
-    const position = this.generateHash(key)
-    let node = this.buckets[position]
+    const position = this.generateHash(value.key)
+    let bucket = this.buckets[position]
 
-    if (node === null) {
-      node = new LinkedList()
-      node.add(value)
+    if (bucket === null) {
+      bucket = new LinkedList()
+      bucket.add(value)
 
-      this.buckets[position] = node
+      this.buckets[position] = bucket
 
       return this
     }
 
-    node.addEnd(value)
+    bucket.addEnd(value)
     return this
   }
 

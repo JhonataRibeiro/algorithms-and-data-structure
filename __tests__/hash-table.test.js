@@ -27,10 +27,15 @@ describe('hash table', () => {
 
   it('should create new node and insert \'word\' in position 12', () => {
     const hashTable = new HashTable(16)
-    const key = 'word'
-    const value = 'data payload'
-    hashTable.add(key, value)
-    expect(hashTable.get(key).head.data).toBe(value)
+
+    const payload = {
+      key: 'word',
+      value: 'data payload'
+    }
+
+    hashTable.add(payload)
+
+    expect(hashTable.get(payload.key).data).toBe(payload)
   })
 
   it('should resolve colision when it occurs', () => {
