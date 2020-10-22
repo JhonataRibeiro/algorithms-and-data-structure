@@ -33,12 +33,23 @@ describe('hash table', () => {
     expect(hashTable.get(key).head.data).toBe(value)
   })
 
-  it('should resolve colision with palindrome 313', () => {
+  it('should resolve colision when it occurs', () => {
     const hashTable = new HashTable(16)
-    const key = '313'
-    const value = 'data value'
-    hashTable.add(key, value)
-    hashTable.add(key, value)
-    expect(hashTable.get(key).head.data).toBe(value)
+
+    const payload = {
+      key: 'demos',
+      value: 'demos - data'
+    }
+
+    const payloadForColision = {
+      key: 'domes',
+      value: 'domes -data'
+    }
+
+    hashTable.add(payload.key, payload.value)
+    hashTable.add(payloadForColision.key, payloadForColision.value)
+
+    expect(hashTable.get(payload.key).head.data).toBe(payload.value)
+    expect(hashTable.get(payloadForColision.key).tail.data).toBe(payloadForColision.value)
   })
 })
