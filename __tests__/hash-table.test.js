@@ -51,10 +51,21 @@ describe('hash table', () => {
       value: 'domes -data'
     }
 
-    hashTable.add(payload.key, payload.value)
-    hashTable.add(payloadForColision.key, payloadForColision.value)
+    const payloadForColisionForced = {
+      key: 'domse',
+      value: 'domse -data'
+    }
 
-    expect(hashTable.get(payload.key).head.data).toBe(payload.value)
-    expect(hashTable.get(payloadForColision.key).tail.data).toBe(payloadForColision.value)
+    hashTable.add(payload)
+    hashTable.add(payloadForColision)
+    hashTable.add(payloadForColisionForced)
+
+    const value = hashTable.get(payload.key)
+    const valueFromColision = hashTable.get(payloadForColision.key)
+    const colisionForced = hashTable.get(payloadForColisionForced.key)
+
+    expect(value.data).toEqual(payload)
+    expect(valueFromColision.data).toEqual(payloadForColision)
+    expect(colisionForced.data).toEqual(payloadForColisionForced)
   })
 })

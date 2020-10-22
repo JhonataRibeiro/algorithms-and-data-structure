@@ -50,7 +50,19 @@ class HashTable {
 
   get (key) {
     const position = this.generateHash(key)
-    return this.buckets[position]
+    const linkedList = this.buckets[position]
+
+    if (!linkedList.tail) {
+      return linkedList.head
+    }
+
+    let node = linkedList.head
+
+    while (node.data.key !== key) {
+      node = node.next
+    }
+
+    return node
   }
 }
 
