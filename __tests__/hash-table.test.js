@@ -68,4 +68,12 @@ describe('hash table', () => {
     expect(valueFromColision.data).toEqual(payloadForColision)
     expect(colisionForced.data).toEqual(payloadForColisionForced)
   })
+
+  it('should delete a element', () => {
+    throw new Error('tests not implemented')
+  })
+
+  it('should delete a element with colision', () => {
+    throw new Error('tests not implemented')
+  })
 })
